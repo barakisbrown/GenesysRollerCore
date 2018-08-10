@@ -1,4 +1,4 @@
-namespace GenesysRoller
+namespace GenesysRollerCore
 {
     public class LookupTable
     {

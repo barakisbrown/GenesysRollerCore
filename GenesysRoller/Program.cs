@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GenesysRoller
+namespace GenesysRollerCore
 {
     public class Program
     {
@@ -54,8 +54,6 @@ namespace GenesysRoller
                 // CHALLENGE DICE
                 red = QuestionAnswer(question6);
             }
-
-            Console.In.Read();
         }
 
         static int QuestionAnswer(string question)

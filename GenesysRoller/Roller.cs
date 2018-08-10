@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace GenesysRoller
+namespace GenesysRollerCore
 {
     public class Roller
     {
