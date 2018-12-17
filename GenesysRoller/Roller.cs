@@ -60,17 +60,7 @@ namespace GenesysRollerCore
             var goodResults = $"Success => {_success}    Advantages => {_advantages}    Triumps => {_triumps}";
             var badResults = $"Failures => {_failures}    Threats => {_threats}    Dispairs => {_dispairs}";
             // NET RESULTS BREAKDOWN
-            var netResults = string.Empty;
-            if (_netSuccess > 0)
-                netResults += $"Congrats. You succeeded at your take. You had a total of {_netSuccess} successes";
-            else if (_netSuccess == 0)
-                netResults += $"Your roll did not either succeed or fail since your successes equaled 0";
-            else
-                netResults += $"Sorry. You did not pass this task. You had a total of {Math.Abs(_netSuccess)}";
-            if (_netAdvantages < 0)
-                netResults += $" and {Math.Abs(_netAdvantages)} threats rolled";
-            else
-                netResults += $" and {_netAdvantages} advantages rolled";
+            var netResults = PrintOutResults();
 
             // DISPLAY THESE
             Console.WriteLine(goodResults);
@@ -182,6 +172,24 @@ namespace GenesysRollerCore
             retStringValue = string.Join(",", _displayDiceRolled);
 
             return retStringValue;
+        }
+
+        private string PrintOutResults()
+        {
+            var netResults = string.Empty;
+
+            if (_netSuccess > 0)
+                netResults += $"Congrats. You succeeded at your task by rolling a total of {_netSuccess} successes";
+            else if (_netSuccess == 0)
+                netResults += $"Your roll did not either succeed or fail since you did not roll any successes or failures";
+            else
+                netResults += $"Sorry. You failed at this task by rolling a total of {Math.Abs(_netSuccess)} failures";                   
+            if (_netAdvantages < 0)
+                netResults += $". Alsp, you generated a total of {Math.Abs(_netAdvantages)} threats";
+            else
+                netResults += $". Alsp, you generated a total of {Math.Abs(_netAdvantages)} advantages";
+
+            return netResults;
         }
     }
 }
