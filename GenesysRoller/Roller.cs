@@ -185,9 +185,9 @@ namespace GenesysRollerCore
             else
                 netResults += $"Sorry. You failed at this task by rolling a total of {Math.Abs(_netSuccess)} failures";                   
             if (_netAdvantages < 0)
-                netResults += $". Alsp, you generated a total of {Math.Abs(_netAdvantages)} threats";
+                netResults += $". Also, you generated a total of {Math.Abs(_netAdvantages)} threats";
             else
-                netResults += $". Alsp, you generated a total of {Math.Abs(_netAdvantages)} advantages";
+                netResults += $". Also, you generated a total of {Math.Abs(_netAdvantages)} advantages";
 
             return netResults;
         }
