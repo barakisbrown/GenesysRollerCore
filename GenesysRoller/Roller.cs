@@ -6,12 +6,13 @@ namespace GenesysRollerCore
     public class Roller
     {
         private readonly LookupTable _lookupTable = new LookupTable();
-        private readonly int _blueDice;
-        private readonly int _blackDice;
-        private readonly int _greenDice;
-        private readonly int _purpleDice;
-        private readonly int _yellowDice;
-        private readonly int _redDice;
+        private int Blue { get; }
+        private int Black { get; }
+        private int Green { get; }
+        private int Purple { get; }
+        private int Yellow { get; }
+        private int Red { get; }
+
         private readonly Random _random = new Random();
 
         private int _success;
@@ -26,12 +27,12 @@ namespace GenesysRollerCore
         
         public Roller(int blue, int black, int green, int purple, int yellow, int red)
         {
-            _blueDice = blue;
-            _blackDice = black;
-            _greenDice = green;
-            _purpleDice = purple;
-            _yellowDice = yellow;
-            _redDice = red;
+            Blue = blue;
+            Black = black;
+            Green = green;
+            Purple = purple;
+            Yellow = yellow;
+            Red = red;
             _displayDiceRolled = new List<string>();
         }
 
@@ -43,15 +44,15 @@ namespace GenesysRollerCore
         {
             Console.WriteLine();
             var rolledStr =
-                $"Dice Rolled => (B/S/A/D/P/C):({_blueDice}/{_blackDice}/{_greenDice}/{_purpleDice}/{_yellowDice}/{_redDice})";
+                $"Dice Rolled => (B/S/A/D/P/C):({Blue}/{Black}/{Green}/{Purple}/{Yellow}/{Red})";
             Console.WriteLine(rolledStr);            
             // ROLL THOSE DICE SO THAT WE CAN DISPLAY THEM
-            RollDice(_blueDice,_lookupTable.Boost);
-            RollDice(_blackDice, _lookupTable.Setback);
-            RollDice(_greenDice, _lookupTable.Ability);
-            RollDice(_purpleDice, _lookupTable.Difficulty);
-            RollDice(_yellowDice, _lookupTable.Proficiency);
-            RollDice(_redDice, _lookupTable.Challenge);
+            RollDice(Blue,_lookupTable.Boost);
+            RollDice(Black, _lookupTable.Setback);
+            RollDice(Green, _lookupTable.Ability);
+            RollDice(Purple, _lookupTable.Difficulty);
+            RollDice(Yellow, _lookupTable.Proficiency);
+            RollDice(Red, _lookupTable.Challenge);
             // LETS DISPLAY THEM NOW
             Console.WriteLine($"You rolled the following => {FormatDisplayString()}");
             Console.WriteLine();
